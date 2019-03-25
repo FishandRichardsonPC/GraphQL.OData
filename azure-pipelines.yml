@@ -4,7 +4,7 @@ trigger:
 jobs:
 - job: Build
   pool:
-    vmImage: 'vs2017'
+    vmImage: 'vs2017-win2016'
   steps:
     - task: DotNetCoreInstaller@0
       inputs:
@@ -36,7 +36,7 @@ jobs:
         parallel: true
 - job: Resharper
   pool:
-    vmImage: 'vs2017'
+    vmImage: 'vs2017-win2016'
   steps:
     - task: DotNetCoreInstaller@0
       inputs:
