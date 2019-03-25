@@ -28,7 +28,7 @@ this.AddField(
     }
 );
 ```
-This will add all EntitySet and Singleton elements to your query type
+This will add a new object type to your query with all EntitySet and Singleton elements on it
 
 Within your Mutation constructor classes add ODataResolver as an injected parameter, then add the following
 replacing everything between <angle brackets>
@@ -45,7 +45,7 @@ this.AddField(
     }
 );
 ```
-This currently only adds a placeholder
+This will add a new object type to your mutation which currently only has a placeholder
 
 # Releasing
 All Pull Requests should be available as a prerelease on nuget.org. To create an official release create a release in github
