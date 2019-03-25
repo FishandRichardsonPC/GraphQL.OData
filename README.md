@@ -46,3 +46,7 @@ this.AddField(
 );
 ```
 This currently only adds a placeholder
+
+# Releasing
+All Pull Requests should be available as a prerelease on nuget.org. To create an official release create a tag with the 
+new version number, after the build completes it will be uploaded to nuget.org
