@@ -2,7 +2,6 @@
 
     <PropertyGroup>
         <TargetFrameworks>netstandard2.0</TargetFrameworks>
-        <Version>0.0.1</Version>
         <Description>Annotations for projects which use GraphQL.OData to allow for referencing the OData schema</Description>
         <Authors>Fish &amp; Richardson</Authors>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -11,6 +10,9 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="GitVersionTask" Version="4.0.0">
+        <PrivateAssets>all</PrivateAssets>
+      </PackageReference>
       <PackageReference Include="GraphQL" Version="2.4.0" />
     </ItemGroup>
 
