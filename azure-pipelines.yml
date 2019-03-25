@@ -10,9 +10,14 @@ jobs:
       inputs:
         packageType: 'sdk'
         version: '2.2.102' 
-    - template: nuget-restore.yml
-      parameters:
-        solution: ./GraphQL.OData.sln
+    - task: NuGetToolInstaller@0
+      inputs:
+        versionSpec: '4.9.X'
+    - task: NuGetCommand@2
+      inputs:
+        command: 'custom'
+        feedsToUse: 'config'
+        arguments: ${{ format('restore "{0}" -DirectDownload -NoCache', './GraphQL.OData.sln') }}
     - task: VSBuild@1
       inputs:
         solution: ./GraphQL.OData.sln
@@ -37,14 +42,19 @@ jobs:
       inputs:
         packageType: 'sdk'
         version: '2.2.102' 
-    - template: nuget-restore.yml
-      parameters:
-        solution: ./GraphQL.OData.sln
+    - task: NuGetToolInstaller@0
+      inputs:
+        versionSpec: '4.9.X'
     - task: NuGetCommand@2
       inputs:
         command: 'custom'
         feedsToUse: 'config'
-        arguments: ${{ format('install JetBrains.ReSharper.CommandLineTools -Version {0} -NonInteractive -DirectDownload -NoCache', parameters.resharperVersion) }}
+        arguments: ${{ format('restore "{0}" -DirectDownload -NoCache', './GraphQL.OData.sln') }}
+    - task: NuGetCommand@2
+      inputs:
+        command: 'custom'
+        feedsToUse: 'config'
+        arguments: ${{ format('install JetBrains.ReSharper.CommandLineTools -Version {0} -NonInteractive -DirectDownload -NoCache', '2018.2.3') }}
     - powershell: >
         function Write-StdErr {
             param ([PSObject] $InputObject)
