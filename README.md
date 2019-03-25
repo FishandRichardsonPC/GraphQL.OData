@@ -1,4 +1,9 @@
 # GraphQL.OData
+[![Build Status](https://dev.azure.com/fishandrichardson-oss/GraphQL.OData/_apis/build/status/FishandRichardsonPC.GraphQL.OData?branchName=master)](https://dev.azure.com/fishandrichardson-oss/GraphQL.OData/_build/latest?definitionId=1&branchName=master)
+[![SemVer](https://img.shields.io/nuget/v/GraphQL.OData.svg)](https://semver.org)
+[![Nuget](https://img.shields.io/nuget/dt/GraphQL.OData.svg)](https://www.nuget.org/packages/GraphQL.OData)
+
+
 C# Library for nesting an OData API within a graphql schema, Intended to be used with the GraphQL 
 package on nuget. A sample project is included which creates a graphql server with the MS Graph api
 nested within
