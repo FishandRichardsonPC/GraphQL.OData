@@ -2,7 +2,6 @@
 
     <PropertyGroup>
         <TargetFrameworks>netstandard2.0</TargetFrameworks>
-        <Version>0.0.1</Version>
         <Description>Type generation and resolvers for embedding an OData api within a GraphQL Api</Description>
         <Authors>Fish &amp; Richardson</Authors>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -11,6 +10,9 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="GitVersionTask" Version="4.0.0">
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
       <PackageReference Include="GraphQL" Version="2.4.0" />
       <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.2.0" />
       <PackageReference Include="System.Text.Encodings.Web" Version="4.5.0" />

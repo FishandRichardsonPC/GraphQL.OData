@@ -5,6 +5,8 @@ ProjectSection(SolutionItems) = preProject
 	.gitignore = .gitignore
 	LICENSE = LICENSE
 	README.md = README.md
+	GitVersion.yml = GitVersion.yml
+	azure-pipelines.yml = azure-pipelines.yml
 EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphQL.OData", "GraphQL.OData\GraphQL.OData.csproj", "{2E7F4C2E-C62A-498D-8CB7-A687D68C3EDB}"
