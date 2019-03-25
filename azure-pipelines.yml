@@ -12,7 +12,7 @@ jobs:
     - task: DotNetCoreInstaller@0
       inputs:
         packageType: 'sdk'
-        version: '2.2.102' 
+        version: '2.2.102'
     - task: NuGetToolInstaller@0
       inputs:
         versionSpec: '4.9.X'
@@ -37,6 +37,12 @@ jobs:
         artifactName: 'Packages'
         artifactType: container
         parallel: true
+    - task: NuGetCommand@2
+      inputs:
+        command: push
+        nuGetFeedType: external
+        publishFeedCredentials: 'Nuget.org'
+        packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg'
 - job: Resharper
   pool:
     vmImage: 'vs2017-win2016'
@@ -44,7 +50,7 @@ jobs:
     - task: DotNetCoreInstaller@0
       inputs:
         packageType: 'sdk'
-        version: '2.2.102' 
+        version: '2.2.102'
     - task: NuGetToolInstaller@0
       inputs:
         versionSpec: '4.9.X'
