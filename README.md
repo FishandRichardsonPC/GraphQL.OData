@@ -47,6 +47,8 @@ this.AddField(
 ```
 This will add a new object type to your mutation which currently only has a placeholder
 
+Additional features can be found in the [wiki](https://github.com/FishandRichardsonPC/GraphQL.OData/wiki).
+
 # Releasing
 All Pull Requests should be available as a prerelease on nuget.org. To create an official release create a release in github
 with the new version number, after the build completes it will be uploaded to nuget.org
