@@ -362,6 +362,13 @@ namespace GraphQL.OData
 						{
 							var type = bindingParam.Value;
 							var typeName = type.Name;
+
+							if (type is NonNullGraphType nonNullType)
+							{
+								// This binding param is not allowed to be null in graph anyway AFAIK
+								type = (GraphType)nonNullType.ResolvedType;
+							}
+
 							if (type is ListGraphType listType)
 							{
 								typeName = $"List<{listType.ResolvedType.Name}>";
