@@ -7,7 +7,7 @@ namespace GraphQL.OData
 	{
 		internal ODataResolver ODataResolver;
 
-		public object Resolve(ResolveFieldContext context)
+		public object Resolve(IResolveFieldContext context)
 		{
 			var resolvedType = this.ODataResolver.GetResolvedType(context);
 			if (context.Source != null && context.Source is ODataObjectGraphType obj)

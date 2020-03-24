@@ -8,7 +8,7 @@ namespace GraphQL.OData
 	public sealed class ODataObjectGraphType: ObjectGraphType
 	{
 		internal Dictionary<string, object> Data;
-		internal Action<ResolveFieldContext> PreParse;
+		internal Action<IResolveFieldContext> PreParse;
 		public Action<GraphType> AugmentTypes;
 
 		public ODataObjectGraphType()
@@ -31,6 +31,6 @@ namespace GraphQL.OData
 		internal List<QueryArgument> Arguments { get; set; }
 		internal bool Selectable { get; set; } = true;
 		internal string Prefix { get; set; }
-		internal Func<ResolveFieldContext, HttpRequestMessage, HttpRequestMessage> PreRequest { get; set; }
+		internal Func<IResolveFieldContext, HttpRequestMessage, HttpRequestMessage> PreRequest { get; set; }
 	}
 }

@@ -62,8 +62,8 @@ namespace GraphQL.OData
 		public IGraphType GetQueryType(
 			string prefix,
 			string baseUrl,
-			Action<ResolveFieldContext> preParse = null,
-			Func<ResolveFieldContext, HttpRequestMessage, HttpRequestMessage> preRequest = null,
+			Action<IResolveFieldContext> preParse = null,
+			Func<IResolveFieldContext, HttpRequestMessage, HttpRequestMessage> preRequest = null,
 			Action<GraphType> augmentTypes = null
 		)
 		{
@@ -137,8 +137,8 @@ namespace GraphQL.OData
 		public IGraphType GetMutationType(
 			string prefix,
 			string baseUrl,
-			Action<ResolveFieldContext> preParse = null,
-			Func<ResolveFieldContext, HttpRequestMessage, HttpRequestMessage> preRequest = null,
+			Action<IResolveFieldContext> preParse = null,
+			Func<IResolveFieldContext, HttpRequestMessage, HttpRequestMessage> preRequest = null,
 			Action<GraphType> augmentTypes = null
 		)
 		{
@@ -195,8 +195,8 @@ namespace GraphQL.OData
 		private Dictionary<string, GraphType> GetQueryGraphTypes(
 			string prefix,
 			string baseUrl,
-			Action<ResolveFieldContext> preParse,
-			Func<ResolveFieldContext, HttpRequestMessage, HttpRequestMessage> preRequest,
+			Action<IResolveFieldContext> preParse,
+			Func<IResolveFieldContext, HttpRequestMessage, HttpRequestMessage> preRequest,
 			Action<GraphType> augmentTypes,
 			XmlNode schema = null
 		)
@@ -895,8 +895,8 @@ namespace GraphQL.OData
 		private ObjectGraphType CreateType(
 			string prefix,
 			string baseUrl,
-			Action<ResolveFieldContext> preParse,
-			Func<ResolveFieldContext, HttpRequestMessage, HttpRequestMessage> preRequest,
+			Action<IResolveFieldContext> preParse,
+			Func<IResolveFieldContext, HttpRequestMessage, HttpRequestMessage> preRequest,
 			XmlNode entityEle,
 			Action<GraphType> augmentTypes
 		)
@@ -1083,7 +1083,7 @@ namespace GraphQL.OData
 			return inheritance;
 		}
 
-		public object Resolve(ResolveFieldContext context)
+		public object Resolve(IResolveFieldContext context)
 		{
 			var results = new Dictionary<string, Task<object>>();
 			var resolvedType = (ODataObjectGraphType) context.FieldDefinition.ResolvedType;
@@ -1135,8 +1135,8 @@ namespace GraphQL.OData
 		private ODataObjectGraphType CreateObject(
 			string prefix,
 			string baseUrl,
-			Action<ResolveFieldContext> preParse,
-			Func<ResolveFieldContext, HttpRequestMessage, HttpRequestMessage> preRequest,
+			Action<IResolveFieldContext> preParse,
+			Func<IResolveFieldContext, HttpRequestMessage, HttpRequestMessage> preRequest,
 			string json,
 			FieldType field,
 			Action<GraphType> augmentTypes,
@@ -1158,8 +1158,8 @@ namespace GraphQL.OData
 		internal ODataObjectGraphType CreateObject(
 			string prefix,
 			string baseUrl,
-			Action<ResolveFieldContext> preParse,
-			Func<ResolveFieldContext, HttpRequestMessage, HttpRequestMessage> preRequest,
+			Action<IResolveFieldContext> preParse,
+			Func<IResolveFieldContext, HttpRequestMessage, HttpRequestMessage> preRequest,
 			JObject jObject,
 			FieldType field,
 			Action<GraphType> augmentTypes,
@@ -1186,8 +1186,8 @@ namespace GraphQL.OData
 		internal ODataObjectGraphType CreateObject(
 			string prefix,
 			string baseUrl,
-			Action<ResolveFieldContext> preParse,
-			Func<ResolveFieldContext, HttpRequestMessage, HttpRequestMessage> preRequest,
+			Action<IResolveFieldContext> preParse,
+			Func<IResolveFieldContext, HttpRequestMessage, HttpRequestMessage> preRequest,
 			Dictionary<string, object> jsonData,
 			FieldType field,
 			Action<GraphType> augmentTypes,
@@ -1230,13 +1230,13 @@ namespace GraphQL.OData
 		internal async Task<object> GetField(
 			string prefix,
 			string rootBaseUrl,
-			Action<ResolveFieldContext> preParse,
-			Func<ResolveFieldContext, HttpRequestMessage, HttpRequestMessage> preRequest,
-			ResolveFieldContext context,
+			Action<IResolveFieldContext> preParse,
+			Func<IResolveFieldContext, HttpRequestMessage, HttpRequestMessage> preRequest,
+			IResolveFieldContext context,
 			string key,
 			string baseUrl,
 			FieldType field,
-			Dictionary<string, object> parameters,
+			IDictionary<string, object> parameters,
 			Action<GraphType> augmentTypes,
 			SelectionSet fieldSelection = null,
 			bool firstResultOnly = false
@@ -1413,7 +1413,7 @@ namespace GraphQL.OData
 			return resolvedType;
 		}
 
-		internal ODataObjectGraphType GetResolvedType(ResolveFieldContext context)
+		internal ODataObjectGraphType GetResolvedType(IResolveFieldContext context)
 		{
 			if (this.GetResolvedType(context.FieldDefinition.ResolvedType) is ODataObjectGraphType odataObj)
 			{

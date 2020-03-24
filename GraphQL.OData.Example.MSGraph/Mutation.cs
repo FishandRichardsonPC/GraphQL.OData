@@ -39,7 +39,7 @@ namespace GraphQL.OData.Example.MSGraph
 			);
 		}
 
-		public object Resolve(ResolveFieldContext context)
+		public object Resolve(IResolveFieldContext context)
 		{
 			return this;
 		}

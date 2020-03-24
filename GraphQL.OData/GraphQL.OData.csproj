@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFrameworks>netstandard2.0</TargetFrameworks>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
         <Description>Type generation and resolvers for embedding an OData api within a GraphQL Api</Description>
         <Authors>Fish &amp; Richardson</Authors>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -10,12 +10,13 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="GitVersionTask" Version="4.0.0">
+        <PackageReference Include="GitVersionTask" Version="5.2.3">
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
-      <PackageReference Include="GraphQL" Version="2.4.0" />
-      <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.2.0" />
-      <PackageReference Include="System.Text.Encodings.Web" Version="4.5.0" />
+        <PackageReference Include="GraphQL" Version="3.0.0-preview-1490"/>
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0-preview.1.20120.4"/>
+        <PackageReference Include="System.Text.Encodings.Web" Version="5.0.0-preview.1.20120.5"/>
+        <PackageReference Include="Newtonsoft.Json" Version="12.0.3"/>
     </ItemGroup>
 
 </Project>

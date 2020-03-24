@@ -16,7 +16,7 @@ namespace GraphQL.OData
 			this._oDataResolver = resolver;
 		}
 
-		public object Resolve(ResolveFieldContext context)
+		public object Resolve(IResolveFieldContext context)
 		{
 			ODataObjectGraphType odataType;
 			Dictionary<string, object> data;

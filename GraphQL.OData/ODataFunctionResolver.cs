@@ -17,7 +17,7 @@ namespace GraphQL.OData
 			this._oDataResolver = oDataResolver;
 		}
 
-		public object Resolve(ResolveFieldContext context)
+		public object Resolve(IResolveFieldContext context)
 		{
 			var resolvedType = this._oDataResolver.GetResolvedType(context);
 
@@ -36,13 +36,13 @@ namespace GraphQL.OData
 		}
 
 		public object GetValue(
-			ResolveFieldContext context,
+			IResolveFieldContext context,
 			string function,
-			Dictionary<string, object> parameters,
+			IDictionary<string, object> parameters,
 			string prefix,
 			string baseUrl,
-			Action<ResolveFieldContext> preParse,
-			Func<ResolveFieldContext, HttpRequestMessage, HttpRequestMessage> preRequest,
+			Action<IResolveFieldContext> preParse,
+			Func<IResolveFieldContext, HttpRequestMessage, HttpRequestMessage> preRequest,
 			Action<GraphType> augmentTypes,
 			bool firstResultOnly = false,
 			string localUrl = null

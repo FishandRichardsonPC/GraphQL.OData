@@ -19,7 +19,7 @@ namespace GraphQL.OData
         }
 
         internal static void AddError(
-            this ResolveFieldContext context,
+            this IResolveFieldContext context,
             string message,
             JObject data
         )
@@ -28,13 +28,13 @@ namespace GraphQL.OData
                 message,
                 data.Properties().ToDictionary(
                     (v) => v.Name,
-                    (v) => v.Value.GetValue()
+                    (v) => (v.Value as JValue)?.Value
                 )
             );
         }
 
         internal static void AddError(
-            this ResolveFieldContext context,
+            this IResolveFieldContext context,
             string message,
             Dictionary<string, object> data)
         {
@@ -50,7 +50,7 @@ namespace GraphQL.OData
         }
 
         internal static void AddError(
-            this ResolveFieldContext context,
+            this IResolveFieldContext context,
             string message,
             Exception ex
         )

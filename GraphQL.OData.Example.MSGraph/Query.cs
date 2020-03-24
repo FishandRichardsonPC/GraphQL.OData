@@ -51,13 +51,13 @@ namespace GraphQL.OData.Example.MSGraph
 			);
 		}
 
-		public object Resolve(ResolveFieldContext context)
+		public object Resolve(IResolveFieldContext context)
 		{
 			return this;
 		}
 
 		public object Get10Value(
-			ResolveFieldContext context,
+			IResolveFieldContext context,
 			string function,
 			Dictionary<string, object> parameters,
 			bool firstResultOnly = false
@@ -77,7 +77,7 @@ namespace GraphQL.OData.Example.MSGraph
 		}
 
 		public object GetBetaValue(
-			ResolveFieldContext context,
+			IResolveFieldContext context,
 			string function,
 			Dictionary<string, object> parameters,
 			bool firstResultOnly = false

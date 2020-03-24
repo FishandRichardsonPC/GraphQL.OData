@@ -34,7 +34,7 @@ namespace GraphQL.OData.Example.MSGraph
 		}
 
 		public HttpRequestMessage PreRequest(
-			ResolveFieldContext context,
+			IResolveFieldContext context,
 			HttpRequestMessage message
 		)
 		{
@@ -42,7 +42,7 @@ namespace GraphQL.OData.Example.MSGraph
 		}
 
 		public async Task<HttpRequestMessage> PreRequestAsync(
-			ResolveFieldContext context,
+			IResolveFieldContext context,
 			HttpRequestMessage message
 		)
 		{
